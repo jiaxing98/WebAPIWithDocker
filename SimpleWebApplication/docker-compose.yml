@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  web:
+    image: "jiaxing98/simplewebapplication:local"
+    ports:
+     - 8080:80
+  mongodb:
+    image: "mongo:latest"
+    ports: 
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=mongodbadmin
+      - MONGO_INITDB_ROOT_PASSWORD=mongodbadmin
+    volumes:
+      - mongodbdata:/data/db
+volumes:
+    mongodbdata:
+      driver: local
